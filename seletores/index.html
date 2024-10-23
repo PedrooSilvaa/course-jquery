@@ -129,27 +129,37 @@
 
         <script type="text/javascript">
 
-            // Selecionando os elementos que estão "invisiveis"
-            // $('.cars_list li:hidden').show();
+            
+            // $('#register :submit').click(function(event){
+            //     event.preventDefault();
+            //     alert("Você clicou no botão submit")
+            // })
 
-            // Selecionando os elementos visiveis
-            // $('.cars_list li:visible').hide();
+            // $('input').focus(function(){
+            //     $('input:focus').val('Olá você clicou aqui')
+            // })
 
-            // Exibindo e Ocultando carros com um unico botão
-            $(document).ready(function(){
-                $('#toggle_cars').click(function(){
-                    let hiddenCars = $('.cars_list li:hidden').length
-                    let method = hiddenCars > 0 ? 'show' : 'hide';
+            // $('[type=radio]').change(function(){
 
-                    if(hiddenCars > 0){
-                        method = 'show'
-                    }else{
-                        method = 'hide'
-                    }
+            //     let value = $('input:checked').val();
+            //     let gender = (value == 'M') ? 'Masculino' : 'Feminino';
 
-                    eval(`$('.cars_list li').${method}();`)
-                })
-            })
+            //     alert(`Voce selecionou o sexo ${gender}`)
+
+            // })
+
+            // Selecionando um botão
+            // $('#register :button').text()
+
+            // Selecionando um checkbox
+            // $('#register :checkbox').trigger('click')
+
+            // Selecionando os elementos "checados"
+            // $('input:checked').val();
+
+            // Selecionando os elementos desabilitados
+            // $('#register :disabled').val("pedro@email.com").prop('disabled', false);
+
 
         </script>
 

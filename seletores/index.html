@@ -128,20 +128,26 @@
         <script src="jquery.min.js"></script>
 
         <script type="text/javascript">
-            //Nome da tag -> $('h1').css('color', 'blue')
             
-            //ID -> $('#logo').html("Negocios")
-            
-            //Selecionando pela classe $('.paragrafo').animate({
-            //     fontSize: '50px',
-            //     opacity: 0.7
-            // }, 5000)
+            // Elementos descendentes
+            // $('main h1').css('color', 'red')
 
-            //Seletor Composto
-            //$('header nav.menu').css('border', 'solid 1px orange')
-            
-            //Multiplos Seletores
-            $('form, section').css('background-color', '#ccc')
+            // Elementos descendentes diretos
+            // $('main>.title').css('border', 'solid 2px black')
+
+            // Elemento irmao mais proximo
+            // $('.paragrafo+p').css({
+            //     'background-color': 'red',
+            //     'color': 'white'
+            // })
+
+            // Todos elementos irmaos mais proximo
+            // $('.paragrafo~p').css({
+            //     'background-color': 'red',
+            //     'color': 'white'
+            // })
+
+
         </script>
 
     </body>

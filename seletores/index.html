@@ -129,37 +129,21 @@
 
         <script type="text/javascript">
 
-            
-            // $('#register :submit').click(function(event){
-            //     event.preventDefault();
-            //     alert("Você clicou no botão submit")
-            // })
+            $.expr[':'].carsCentury21 = function(el){
+                return ($(el).data('ano') > 2000);
+            }
 
-            // $('input').focus(function(){
-            //     $('input:focus').val('Olá você clicou aqui')
-            // })
+            $.expr[':'].carsBeforeYear = $.expr.createPseudo(function(year){
+                return function(el){
+                    return ($(el).data('ano') < year);
+                }
+            })
 
-            // $('[type=radio]').change(function(){
+            //Criando no próprio filtro
+            // $('.cars_list li:carsCentury21').css('font-size', '30px')
 
-            //     let value = $('input:checked').val();
-            //     let gender = (value == 'M') ? 'Masculino' : 'Feminino';
-
-            //     alert(`Voce selecionou o sexo ${gender}`)
-
-            // })
-
-            // Selecionando um botão
-            // $('#register :button').text()
-
-            // Selecionando um checkbox
-            // $('#register :checkbox').trigger('click')
-
-            // Selecionando os elementos "checados"
-            // $('input:checked').val();
-
-            // Selecionando os elementos desabilitados
-            // $('#register :disabled').val("pedro@email.com").prop('disabled', false);
-
+            //Criando no segundo filtro
+            // $('.cars_list li:carsBeforeYear(1950)').css('font-size', '30px')
 
         </script>
 

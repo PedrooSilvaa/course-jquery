@@ -131,20 +131,36 @@
 
         <script type="text/javascript">
 
-            // Retonando ou definindo a posição de um elemento
-            // $('form, field:eq(0)').offset({
-            //     top: 5,
-            //     left:100
-            // });
+            // Adicionando um elemento ao final de outro
+            // $('.menu ul').append('<li><a href="#">News</a></li>')
 
-            // Retonando a  posção de um elemento se bsaeando no elemento pai
-            // $('form, field:eq(0)').position();
+            // Adicionando um elemento ao final de outro em outra sintaxe
+            // $('<li><a href="#">News</a></li>').appendTo('.menu ul')
 
-            // Retornando ou definindo a posicao da barra de rolagem vertical
-            // $(document).scrollTop(400)
+            // Adicionando um elemento no inicio de outro
+            // $('.menu ul').prepend('<li><a href="#">News</a></li>')
 
-            // Retornando ou definindo a posicao da barra de rolagem horizontal
-            // $(document).scrollLeft(400)
+            // Adicionando um elemento no inicio de outro em outra sintaxe
+            // $('<li><a href="#">News</a></li>').prependTo('.menu ul');
+
+            // Aicionando um elemento após outro 
+            // $('.paragrafo').after('<h2>HCode Treinamentos</h2>')
+
+            // Aicionando um elemento após outro, cim outra sintaxe
+            // $('<h2>HCode Treinamentos</h2>').insertAfter('.paragrafo')
+            
+            // Aicionando um elemento antes de outro 
+            // $('.paragrafo').before('<h2>HCode Treinamentos</h2>')
+
+            // Aicionando um elemento antes outro, cim outra sintaxe
+            // $('<h2>HCode Treinamentos</h2>').insertBefore('.paragrafo')
+
+            // Adicionando um elemento em volta de outro
+            // $('.cars_list li').wrap('<i></i>')
+
+            // Adicionando um elemento em volta do conteudo de outro
+            // $('.cars_list li').wrapInner('<i></i>')
+
         </script>
 
     </body>

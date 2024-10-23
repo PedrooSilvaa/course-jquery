@@ -129,23 +129,23 @@
 
         <script type="text/javascript">
             
-            // Elementos descendentes
-            // $('main h1').css('color', 'red')
+            // Verificando se possui um atributo
+            // $('.header-border li [href]').text('Link')
 
-            // Elementos descendentes diretos
-            // $('main>.title').css('border', 'solid 2px black')
-
-            // Elemento irmao mais proximo
-            // $('.paragrafo+p').css({
-            //     'background-color': 'red',
-            //     'color': 'white'
-            // })
-
-            // Todos elementos irmaos mais proximo
-            // $('.paragrafo~p').css({
-            //     'background-color': 'red',
-            //     'color': 'white'
-            // })
+            // Verificando se possui mais de um atributo
+            // $('.header-border li [href][title]').text('Link')
+            
+            // Verificando um valor para o atributo
+            // $('.header-border li [href="about.html"]').text()
+            
+            // Verificando os atributos que começa com uma letra especifica
+            // $('.header-border li [href^="a"]').text()
+            
+            // Verificando os atributos que terminam com uma expressão especifica
+            // $('.header-border li [href$="a"]').text()
+            
+            // Verificando os atributos que possuem a expressão informada
+            // $('.header-border li [href*="about"]').text()
 
 
         </script>

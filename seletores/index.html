@@ -82,8 +82,8 @@
                         <li data-ano="1983">Uno <span> - Fiat</span></li>
                         <li data-ano="1996">Palio</li>
                         <li data-ano="2013">Ônix <span> - GM</span></li>
-                        <li></li>
-                        <li></li>
+                        <li style="display: none;">Invisivel</li>
+                        <li style="display: none;">invisivel</li>
                     </ul>
     
                 </div>
@@ -129,23 +129,27 @@
 
         <script type="text/javascript">
 
-            // Selecionando um elemento pelo seu conteudo
-            // $('.menu li a:contains(Abo)').css('outline', 'solid red 2px')
+            // Selecionando os elementos que estão "invisiveis"
+            // $('.cars_list li:hidden').show();
 
-            // Selecionando um elemento que não possui conteúdo
-            // $('.cars_list li:empty').text("Vazio").css({
-            //     'background': 'red',
-            //     'color': 'white'
-            // });
+            // Selecionando os elementos visiveis
+            // $('.cars_list li:visible').hide();
 
-            // Selecionando um elemento que possui conteúdo
-            // $('.cars_list li:parent').append('<span style="color: green;"> - Tem valor </span>')
+            // Exibindo e Ocultando carros com um unico botão
+            $(document).ready(function(){
+                $('#toggle_cars').click(function(){
+                    let hiddenCars = $('.cars_list li:hidden').length
+                    let method = hiddenCars > 0 ? 'show' : 'hide';
 
-            // Selecionando os elementos que possuem outros elementos
-            // $('.cars_list li:has(span)').animate({
-            //     fontSize: '30px',
-            //     'opacity': 0.7
-            // }, 2000)
+                    if(hiddenCars > 0){
+                        method = 'show'
+                    }else{
+                        method = 'hide'
+                    }
+
+                    eval(`$('.cars_list li').${method}();`)
+                })
+            })
 
         </script>
 

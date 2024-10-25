@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="estilo.css">
     <title>Eventos no jQuery</title>
 </head>
+
 <body>
 
     <header>
@@ -15,7 +17,8 @@
             <div class="row">
                 <div class="col-md-4 col-sm-4 col-xs-4">
                     <div class="logo">
-                        <a href="https://youtube.com.br" id="link_logo"><img src="img/logo-hcode.svg" alt="Logo da Hcode"></a>
+                        <a href="https://youtube.com.br" id="link_logo"><img src="img/logo-hcode.svg"
+                                alt="Logo da Hcode"></a>
                     </div>
                 </div>
                 <div class="col-md-8 col-sm-8 col-xs-8 title">
@@ -35,6 +38,7 @@
 
                     <h3 class="text-center books"><u>Lista de Livros</u></h3>
 
+                    <button class="btn btn-info" id="btn_add_book">Adicionar um livro</button>
                     <table class="table table-striped" id="books_list">
                         <thead>
                             <tr>
@@ -73,14 +77,16 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label for="form_username">Nome de usuário</label>
-                                    <input type="text" class="form-control" name="username" id="form_username" placeholder="Digite seu nome...">
+                                    <input type="text" class="form-control" name="username" id="form_username"
+                                        placeholder="Digite seu nome...">
                                 </div>
                             </div>
 
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label for="form_password">Senha</label>
-                                    <input type="password" class="form-control" name="password" id="form_password" placeholder="Digite sua senha...">
+                                    <input type="password" class="form-control" name="password" id="form_password"
+                                        placeholder="Digite sua senha...">
                                 </div>
                             </div>
                         </div>
@@ -121,7 +127,7 @@
                                         <option value="TO">Tocantins</option>
                                     </select>
                                 </div>
-                            
+
                             </div>
 
                             <div class="col-md-6 col-sm-6">
@@ -129,15 +135,15 @@
                                 <div class="form-group">
 
                                     <h5>Sexo</h5>
-        
+
                                     <label for="form_gender_M">
                                         <input type="radio" name="gender" id="form_gender_M" value="M"> Masculino
                                     </label>
-        
+
                                     <label for="form_gender_F">
                                         <input type="radio" name="gender" id="form_gender_F" value="F"> Feminino
                                     </label>
-        
+
                                 </div>
 
                             </div>
@@ -150,7 +156,8 @@
 
                                 <div class="form-group">
                                     <label for="form_bio">Sua biografia</label>
-                                    <textarea name="bio" id="form_bio" cols="30" rows="5" class="form-control"></textarea>
+                                    <textarea name="bio" id="form_bio" cols="30" rows="5"
+                                        class="form-control"></textarea>
                                 </div>
 
                             </div>
@@ -166,8 +173,12 @@
                 </div>
             </div>
 
-            <p>Lorem ipsum dolor <span> sit amet consectetur adipisicing elit. Quidem ipsam esse nemo laborum optio facilis, unde, ipsum dolorem libero nam soluta</span> velit incidunt at magni obcaecati. Neque ipsa iure aliquam.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto fugit voluptatibus quae molestias a sunt deleniti, doloribus quisquam libero! Repellendus eos vitae obcaecati ab minima cumque dignissimos, eveniet quidem fugit!</p>
+            <p>Lorem ipsum dolor <span> sit amet consectetur adipisicing elit. Quidem ipsam esse nemo laborum optio
+                    facilis, unde, ipsum dolorem libero nam soluta</span> velit incidunt at magni obcaecati. Neque ipsa
+                iure aliquam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto fugit voluptatibus quae molestias a sunt
+                deleniti, doloribus quisquam libero! Repellendus eos vitae obcaecati ab minima cumque dignissimos,
+                eveniet quidem fugit!</p>
 
         </div>
 
@@ -182,22 +193,73 @@
     <script src="jquery.min.js"></script>
 
     <script>
-    
-        $(document).ready(function(){
-        
-            // Evento para quando o navegador mudar seu tamanho
-            $(window).resize(function(){
-                console.log(`A largura do navegador é ${$(window).width()}. A altura é ${$(window).height()}`)
+
+        $(document).ready(function () {
+
+            $(window).scroll(function () {
+                let position = $(window).scrollTop();
+                let index;
+                let sections = ['.title', '.books', '.register']
+                if (position < 50) {
+                    index = 0;
+                } else if (position < 200) {
+                    index = 1;
+                } else if (position < 250) {
+                    index = 2;
+                }
+
+                $(sections[index]).addClass('selected_section')
+                sections.splice(index, 1)
+                $(sections.join(', ')).removeClass('selected_section')
             })
 
-            // Evento para quando a barra de rolagem se mover
-            $(window).scroll(function(){
-                console.log(`Você está na posição ${$(window).scrollTop()}`)
-            })
+            // Exemplo do metodo on
+            /* $('#books_list tbody td').on('click contextmenu', function(e){
+                if(e.type == 'contextmenu') e.preventDefault()
 
+                $('#books_list tbody td').css({
+                    background: 'initial',
+                    color: 'initial'
+                })
+                $(this).css({
+                    background: 'black',
+                    color: 'white'
+                })
+            }) */
+
+            //Delegação de eventos
+            /* $('#books_list tbody').on('click', 'td', function(e){
+                $('#books_list tbody td').removeClass('trselected');
+                $(this).addClass('trselected');
+            })
+            $('#btn_add_book').on('click', function(){
+                let tr = `
+                <tr> 
+                    <td>Til</td>
+                    <td>José Alencar</td>    
+                </tr>`
+
+                $('#books_list tbody').append(tr);
+            }) */
+
+
+            $('#books_list tbody').on('click', 'tr', function(e){
+                $(e.delegateTarget).find('tr').removeClass('trselected')
+                $(this).addClass('trselected');
+            })
+            $('#btn_add_book').on('click', function(){
+                let tr = `
+                <tr> 
+                    <td>Til</td>
+                    <td>José Alencar</td>    
+                </tr>`
+
+                $('#books_list tbody').append(tr);
+            })
         });
-        
+
     </script>
 
 </body>
+
 </html>

@@ -213,15 +213,18 @@
                 $(sections.join(', ')).removeClass('selected_section')
             })
 
+            let entries = 100;
+            $('.register').append(`<u> ainda restam ${100 - entries} vagas</u>`)
             
-            $('#form_login').on('change', '[name]', function(){
-                console.log('Elemento mudou seu valor: ' + $(this).val())
+            $('#form_login [type=submit]').on('click', function(e){
+                e.preventDefault();
+                alert("Você foi cadastrado. PARABENS!!")
             })
+
+            if(entries >= 100){
+                $('#form_login [type=submit]').off('click')
+            }
             
-            $('#form_login [name=bio]').on('change', function(event){
-                event.stopPropagation()
-                $(this).css('background', 'red')
-            })
 
         });
 

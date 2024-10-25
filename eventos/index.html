@@ -213,49 +213,16 @@
                 $(sections.join(', ')).removeClass('selected_section')
             })
 
-            // Exemplo do metodo on
-            /* $('#books_list tbody td').on('click contextmenu', function(e){
-                if(e.type == 'contextmenu') e.preventDefault()
-
-                $('#books_list tbody td').css({
-                    background: 'initial',
-                    color: 'initial'
-                })
-                $(this).css({
-                    background: 'black',
-                    color: 'white'
-                })
-            }) */
-
-            //Delegação de eventos
-            /* $('#books_list tbody').on('click', 'td', function(e){
-                $('#books_list tbody td').removeClass('trselected');
-                $(this).addClass('trselected');
+            
+            $('#form_login').on('change', '[name]', function(){
+                console.log('Elemento mudou seu valor: ' + $(this).val())
             })
-            $('#btn_add_book').on('click', function(){
-                let tr = `
-                <tr> 
-                    <td>Til</td>
-                    <td>José Alencar</td>    
-                </tr>`
-
-                $('#books_list tbody').append(tr);
-            }) */
-
-
-            $('#books_list tbody').on('click', 'tr', function(e){
-                $(e.delegateTarget).find('tr').removeClass('trselected')
-                $(this).addClass('trselected');
+            
+            $('#form_login [name=bio]').on('change', function(event){
+                event.stopPropagation()
+                $(this).css('background', 'red')
             })
-            $('#btn_add_book').on('click', function(){
-                let tr = `
-                <tr> 
-                    <td>Til</td>
-                    <td>José Alencar</td>    
-                </tr>`
 
-                $('#books_list tbody').append(tr);
-            })
         });
 
     </script>

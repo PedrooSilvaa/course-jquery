@@ -166,6 +166,9 @@
                 </div>
             </div>
 
+            <p>Lorem ipsum dolor <span> sit amet consectetur adipisicing elit. Quidem ipsam esse nemo laborum optio facilis, unde, ipsum dolorem libero nam soluta</span> velit incidunt at magni obcaecati. Neque ipsa iure aliquam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto fugit voluptatibus quae molestias a sunt deleniti, doloribus quisquam libero! Repellendus eos vitae obcaecati ab minima cumque dignissimos, eveniet quidem fugit!</p>
+
         </div>
 
     </section>
@@ -182,46 +185,38 @@
     
         $(document).ready(function(){
 
-            // Evento para quando o elemento receber o foco
-            /* $('[name]').focus(function(){
-                $(this).css('background', "yellow")
-            }) */
+            $('p').click(function(event){
+                // Retorna o tipo de evento realizado
+                // console.log(`Você realizou um evento de ${event.type}`)
 
-            // Evento para quando o elemento perder o foco
-            /* $('[name]').blur(function(){
-                $(this).css('background', "white")
-            }) */
+                // Retorna o nome do elemento que clicamos
+                // alert(`Você clicou em uma tag <${event.target.localName}>`)
 
-            // Evento para quando o elemento receber o foco, mesmo que seja um elemento filho
-            /* $('.form-group').focusin(function(){
-                console.log("Você selecionou um campo")
-            }) */
-
-            // Evento para quando o elemento perder o foco, mesmo que seja um elemento filho
-            /* $('.form-group').focusout(function(){
-                console.log("Você deixou um campo")
-            }) */
-
-            // Evento para quando o campo mudar seu valor
-            $('[name]').change(function(){
-                console.log(`Valor do campo: ${$(this).val()}`)
+                // console.log("Target " + event.target)
+                // console.log("Current target " + event.currentTarget)
             })
+             
+            // Retorna a posição X e Y do elemento onde ocorreu o evento
+            // event.pageX, event.pageY
 
-            // Evento para quando selcionarmos o valor de um campo do formulario
-            $('[type=text]').select(function(){
-                console.log(`Você selecionou o valor desse campo`)
-            })
+            $('[name=bio]').keydown(function(e){
+                // Retorna o código da tecla clicada
+                // console.log(e.keyCode)
+                // console.log(e.which)
+
+                // Retorna o nome da tecla pressionada
+                // console.log(e.key)
+                /* if (e.key == "Enter"){
+                    console.log("Você pressionou o enter")
+                } */
 
 
-            $('form').submit(function(event){
-                event.preventDefault();
-                console.log($(this).serializeArray());
-            })
+            // Para a execução padrão de eventos
+            // e.preventDefault()
 
-            $('#link_logo').click(function(event){
-                event.preventDefault();
+            // Para a propagação de eventos
+            // e.stopPropagation
 
-                $(this).find('img').attr('src', 'img/jquery.jpg')
             })
 
         });

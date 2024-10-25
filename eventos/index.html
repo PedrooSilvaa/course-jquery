@@ -59,6 +59,18 @@
                                 <td>Dom Casmurro</td>
                                 <td>Machado de Assis</td>
                             </tr>
+                            <tr>
+                                <td>Dom Quixote</td>
+                                <td>Miguel de Cervantes</td>
+                            </tr>
+                            <tr>
+                                <td>Guerra e Paz</td>
+                                <td>Liev Tolstói</td>
+                            </tr>
+                            <tr>
+                                <td>Dom Casmurro</td>
+                                <td>Machado de Assis</td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -213,18 +225,17 @@
                 $(sections.join(', ')).removeClass('selected_section')
             })
 
-            let entries = 100;
-            $('.register').append(`<u> ainda restam ${100 - entries} vagas</u>`)
-            
-            $('#form_login [type=submit]').on('click', function(e){
-                e.preventDefault();
-                alert("Você foi cadastrado. PARABENS!!")
-            })
+            $('.books').append('<u> - Marque seus favoritos (Essa ação não pode ser desfeita)</u>')
 
-            if(entries >= 100){
-                $('#form_login [type=submit]').off('click')
-            }
-            
+            $('#books_list tbody tr').one('click', function(){
+
+                if(!$(this).hasClass('trselected')){
+                    $(this).addClass('trselected');
+                }else {
+                    $(this).removeClass('trselected');
+                }
+
+            })
 
         });
 
